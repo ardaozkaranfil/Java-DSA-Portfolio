@@ -65,6 +65,33 @@ public class CDLinkedList {
         }
     }
 
+    public void printCDLL()
+    {
+        LLNode temp = getHeadNode();
+        int increase = String.valueOf(temp.getElement()).length() - 3;
+        for (int i = 0; i < getSize(); i++)
+        {
+            if (temp != getTailNode())
+            {
+                System.out.print(temp.getElement() + " --> ");
+                temp = temp.getNextElement();
+                increase = increase + 2 + (String.valueOf(temp.getElement()).length() - 1);
+            }
+            else
+            {
+                System.out.println(temp.getElement() + ".");
+                if (getTailNode().getNextElement().equals(getHeadNode()))
+                    printCircularNextConnection(increase);
+                else
+                    System.out.println("No circular connection.");
+            }
+
+        }
+    }
+
+    private void printCircularNextConnection(int increase) {
+    }
+
     private void initializeLinksAndCircularity() {
     }
 }

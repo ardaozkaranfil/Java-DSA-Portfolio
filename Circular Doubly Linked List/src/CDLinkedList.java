@@ -127,4 +127,37 @@ public class CDLinkedList {
             return true;
         }
     }
+
+    public int getElement (int position, boolean isForward){
+        if(size < 2){
+            System.out.println("Circular Linked List is empty or have less than 2 members.");
+            return -1;
+        }
+        else if(position >= size){
+            System.out.println("Wanted position is more than circular linked list size.");
+            return -1;
+        }
+        else if(isForward){
+            LLNode currentNode = headNode;
+
+            for (int i = 0; i < position; i++) {
+                currentNode = currentNode.getNextElement();
+            }
+
+            return currentNode.getElement();
+        }
+        else if(!isForward){
+            LLNode currentNode = tailNode;
+
+            for (int i = 0; i < position; i++) {
+                currentNode = currentNode.getPrevElement();
+            }
+
+            return currentNode.getElement();
+        }
+        else{
+            System.out.println("Something went wrong.");
+            return -1;
+        }
+    }
 }

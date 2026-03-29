@@ -101,5 +101,9 @@ public class CDLinkedList {
     }
 
     private void initializeLinksAndCircularity() {
+        headNode.setNextElement(tailNode);
+        headNode.setPrevElement(tailNode);
+        tailNode.setPrevElement(headNode);
+        tailNode.setNextElement(headNode);
     }
 }

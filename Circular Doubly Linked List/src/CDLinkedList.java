@@ -35,6 +35,36 @@ public class CDLinkedList {
         this.size = size;
     }
 
+    public void addElement(int data)
+    {
+        LLNode newNode = new LLNode(data);
+
+        if (getSize() < 0)
+        {
+            System.out.println("Illegal size (<0). There must a wrong operation in size calculation.");
+            return;
+        }
+
+        else if (getSize() == 0 || getSize() == 1)
+        {
+            System.out.println("There must be something wrong, since size cannot be 0 or 1 at any time.");
+            return;
+        }
+        else
+        {
+            getTailNode().setNextElement(newNode);
+
+            newNode.setPrevElement(getTailNode());
+            newNode.setNextElement(getHeadNode());
+
+            getHeadNode().setPrevElement(newNode);
+
+            setTailNode(newNode);
+            setSize(getSize() + 1);
+
+        }
+    }
+
     private void initializeLinksAndCircularity() {
     }
 }

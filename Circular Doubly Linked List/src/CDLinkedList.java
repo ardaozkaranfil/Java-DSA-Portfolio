@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CDLinkedList {
 
     private LLNode headNode;
@@ -90,6 +92,12 @@ public class CDLinkedList {
     }
 
     private void printCircularNextConnection(int increase) {
+        char[] data = new char[getSize() * 4 + (increase - 1)];
+        char c = '-';
+        Arrays.fill(data, c);
+        data[0] = '^';
+        data[data.length - 1] = '|';
+        System.out.println(new String(data));
     }
 
     private void initializeLinksAndCircularity() {

@@ -137,6 +137,9 @@ public class CDLinkedList {
             System.out.println("Wanted position is more than circular linked list size.");
             return -1;
         }
+        else if (position < 0) {
+            return -1;
+        }
         else if(isForward){
             LLNode currentNode = headNode;
 

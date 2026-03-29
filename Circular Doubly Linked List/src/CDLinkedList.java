@@ -106,4 +106,25 @@ public class CDLinkedList {
         tailNode.setPrevElement(headNode);
         tailNode.setNextElement(headNode);
     }
+
+    public boolean deleteMiddleElement (){
+        if(size <= 2){
+            System.out.println("Circular Linked List is empty or have less than 3 members because of that system can not delete middle element.");
+            return false;
+        }
+        else {
+            int midElementPosition = size / 2;
+            LLNode currentNode = headNode;
+
+            for (int i = 0; i < midElementPosition; i++) {
+                currentNode = currentNode.getNextElement();
+            }
+
+            currentNode.getPrevElement().setNextElement(currentNode.getNextElement());
+            currentNode.getNextElement().setPrevElement(currentNode.getPrevElement());
+            setSize(getSize() - 1);
+
+            return true;
+        }
+    }
 }

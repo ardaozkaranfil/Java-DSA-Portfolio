@@ -185,6 +185,17 @@ public class TwoStacks {
     }
 
     public void pushToStackTwoFromStackOne(int elementCount) {
-
+        if(isStackOneEmpty()){
+            System.out.println("Stack one is empty.");
+        }
+        else{
+            int step = 0;
+            while(step < elementCount){
+                int temp = twoStacks[top1];
+                popFromStackOne();
+                pushToStackTwo(temp);
+                step++;
+            }
+        }
     }
 }

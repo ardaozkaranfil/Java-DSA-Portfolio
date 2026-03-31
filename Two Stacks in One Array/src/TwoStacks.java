@@ -96,11 +96,25 @@ public class TwoStacks {
     }
 
     public void popFromStackOne() {
-
+        if (isStackOneEmpty()){
+            System.out.println("Stack one is empty because of that you can't pop.");
+            return;
+        }
+        else{
+            twoStacks[top1] = null;
+            top1 -= 1;
+        }
     }
 
     public void popFromStackTwo() {
-
+        if (isStackTwoEmpty()){
+            System.out.println("Stack two is empty because of that you can't pop.");
+            return;
+        }
+        else{
+            twoStacks[top2] = null;
+            top2 += 1;
+        }
     }
 
     public int topStackOne() {

@@ -118,11 +118,23 @@ public class TwoStacks {
     }
 
     public int topStackOne() {
-        return 0;
+        if(isStackOneEmpty()){
+            System.out.println("Stack one is empty.");
+            return Integer.MAX_VALUE;
+        }
+        else{
+            return twoStacks[top1];
+        }
     }
 
     public int topStackTwo() {
-        return 0;
+        if(isStackTwoEmpty()){
+            System.out.println("Stack two is empty.");
+            return Integer.MAX_VALUE;
+        }
+        else{
+            return twoStacks[top2];
+        }
     }
 
     public boolean swapTops() {

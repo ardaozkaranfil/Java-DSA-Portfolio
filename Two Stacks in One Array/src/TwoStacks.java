@@ -138,7 +138,24 @@ public class TwoStacks {
     }
 
     public boolean swapTops() {
-        return true;
+        if(isBothStacksEmpty()){
+            System.out.println("Both stacks are empty.");
+            return false;
+        }
+        else if(isStackOneEmpty()){
+            System.out.println("Stack one is empty.");
+            return false;
+        }
+        else if(isStackTwoEmpty()){
+            System.out.println("Stack two is empty.");
+            return false;
+        }
+        else{
+            int temp = twoStacks[top1];
+            twoStacks[top1] = twoStacks[top2];
+            twoStacks[top2] = temp;
+            return true;
+        }
     }
 
     public void makeStackOneEmpty() {

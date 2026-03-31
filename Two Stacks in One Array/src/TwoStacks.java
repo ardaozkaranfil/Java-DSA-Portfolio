@@ -181,7 +181,7 @@ public class TwoStacks {
     }
 
     public boolean isBothStacksEmpty() {
-        return true;
+        return isStackOneEmpty() && isStackTwoEmpty();
     }
 
     public void pushToStackTwoFromStackOne(int elementCount) {

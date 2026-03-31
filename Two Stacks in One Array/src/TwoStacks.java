@@ -159,7 +159,25 @@ public class TwoStacks {
     }
 
     public void makeStackOneEmpty() {
+        if(isStackOneEmpty()){
+            System.out.println("Stack one is already empty.");
+        }
+        else{
+            while(top1 >= 0){
+                popFromStackOne();
+            }
+        }
+    }
 
+    public void makeStackTwoEmpty() {
+        if(isStackTwoEmpty()){
+            System.out.println("Stack two is already empty.");
+        }
+        else{
+            while(top2 <= getCapacity()){
+                popFromStackTwo();
+            }
+        }
     }
 
     public boolean isBothStacksEmpty() {

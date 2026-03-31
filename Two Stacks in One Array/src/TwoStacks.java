@@ -82,11 +82,17 @@ public class TwoStacks {
     }
 
     public void pushToStackOne(int value) {
-
+        if (!isTwoStacksFull()){
+            top1 += 1;
+            twoStacks[top1] = value;
+        }
     }
 
     public void pushToStackTwo(int value) {
-
+        if (!isTwoStacksFull()){
+            top2 -= 1;
+            twoStacks[top2] = value;
+        }
     }
 
     public void popFromStackOne() {

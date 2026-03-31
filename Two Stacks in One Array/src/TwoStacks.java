@@ -70,15 +70,15 @@ public class TwoStacks {
 
 
     public boolean isStackOneEmpty() {
-        return true;
+        return top1 == -1;
     }
 
     public boolean isStackTwoEmpty() {
-        return true;
+        return top2 == getCapacity();
     }
 
     public boolean isTwoStacksFull() {
-        return true;
+        return top1 + 1 == top2;
     }
 
     public void pushToStackOne(int value) {

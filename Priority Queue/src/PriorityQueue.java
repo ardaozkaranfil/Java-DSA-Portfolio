@@ -86,7 +86,43 @@ public class PriorityQueue {
     }
 
     public boolean enqueue(int priority, String name){
-        return true;
+        if(priority < 1){
+            System.out.println("Priority cannot be  lower than 1.");
+            return false;
+        }
+        else {
+            Node temp = getHeadNode();
+            Node lowerTemp = temp;
+            Node newNode = new Node(priority, name);
+
+            if(temp == null){
+                setHeadNode(newNode);
+                size++;
+                return true;
+            }
+            else {
+                while (temp.getNext() != null && temp.getPriority() <= priority) {
+                    lowerTemp = temp;
+                    temp = temp.getNext();
+                }
+
+                if(temp.getPriority() > priority){
+                    newNode.setNext(temp);
+                    if(temp == getHeadNode()){
+                        setHeadNode(newNode);
+                    }
+                    else {
+                        lowerTemp.setNext(newNode);
+                    }
+                }
+                else {
+                    temp.setNext(newNode);
+                }
+
+                size++;
+                return true;
+            }
+        }
     }
 
     public String dequeue(){

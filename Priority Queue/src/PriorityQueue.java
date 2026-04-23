@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 class Node{
     int priority;
     String name;
@@ -126,7 +128,21 @@ public class PriorityQueue {
     }
 
     public String dequeue(){
-        return "";
+        Node temp = getHeadNode();
+
+        if(getHeadNode() == null){
+            throw new NoSuchElementException("Queue is empty!");
+        }
+        else if(getHeadNode().getNext() == null){
+            setHeadNode(null);
+            size--;
+            return temp.getName();
+        }
+        else{
+            setHeadNode(getHeadNode().getNext());
+            size--;
+            return temp.getName();
+        }
     }
 
     public int findPlace(String name){

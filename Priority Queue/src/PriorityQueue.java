@@ -167,6 +167,30 @@ public class PriorityQueue {
     }
 
     public boolean promote(String name){
-        return true;
+        Node temp = getHeadNode();
+        Node lowerTemp = temp;
+
+        if(temp == null){
+            throw new NoSuchElementException("Queue is empty!");
+        }
+
+        while(temp != null && !name.equals(temp.getName())){
+            lowerTemp = temp;
+            temp = temp.getNext();
+        }
+
+        if(temp == null){
+            throw new NoSuchElementException("Element not found: " + name);
+        }
+        else if(temp == getHeadNode()){
+            return true;
+        }
+        else{
+            lowerTemp.setNext(temp.getNext());
+            temp.setPriority(temp.getPriority() - 1);
+            size--;
+            enqueue(temp.getPriority(), temp.getName());
+            return true;
+        }
     }
 }

@@ -146,7 +146,24 @@ public class PriorityQueue {
     }
 
     public int findPlace(String name){
-        return -2;
+        Node temp = getHeadNode();
+        int place = 0;
+
+        if(temp == null){
+            throw new NoSuchElementException("Queue is empty!");
+        }
+
+        while(temp != null && !name.equals(temp.getName())){
+            temp = temp.getNext();
+            place++;
+        }
+
+        if(temp == null){
+            throw new NoSuchElementException("Element not found: " + name);
+        }
+        else{
+            return place;
+        }
     }
 
     public boolean promote(String name){

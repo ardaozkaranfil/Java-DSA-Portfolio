@@ -115,9 +115,32 @@ public class HashTable
         }
     }
 
-    public void insert(Integer x)
-    {
+    public void insert(Integer x) {
+        if(x == null){
+            throw new IllegalArgumentException("x must be integer!");
+        }
+        else if(contains(x)){
+            throw new IllegalArgumentException("Table already contains " + x + ".");
+        }
+        else if((double)(elementSize + 1) / capacity >= 0.5){
+            rehash();
+            insert(x);
+        }
+        else{
+            int temp = hashx(x);
+            int i = 1;
 
+            while(!contains(x)){
+                if(table[temp] == null){
+                    table[temp] = x;
+                    elementSize++;
+                }
+                else{
+                    temp = (int) (x + Math.pow(i, 2)) % capacity;
+                    i++;
+                }
+            }
+        }
     }
 
     public Boolean contains(Integer value)

@@ -84,9 +84,13 @@ public class HashTable
         return prime;
     }
 
-    protected Integer hashx(Integer x)
-    {
-        return x;
+    protected Integer hashx(Integer x) {
+        if(x == null){
+            throw new IllegalArgumentException("x must be integer!");
+        }
+        else{
+            return x % capacity;
+        }
     }
 
     protected void rehash()

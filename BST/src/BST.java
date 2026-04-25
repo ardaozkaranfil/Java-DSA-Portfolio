@@ -165,8 +165,10 @@ public class BST
         }
     }
 
-    public Integer findDepth(BinaryNode node)
-    {
-        return Integer.MIN_VALUE;
+    public Integer findDepth(BinaryNode node) {
+        if(node == null){
+            return -1;
+        }
+        return 1 + Math.max(findDepth(node.leftNode), findDepth(node.rightNode));
     }
 }

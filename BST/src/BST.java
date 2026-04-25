@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 class BinaryNode
 {
@@ -109,9 +110,28 @@ public class BST
         return list;
     }
 
-    public Boolean removeDuplicates()
+    public void removeDuplicates()
     {
-        return null;
+        if(rootNode == null){
+            throw new IllegalStateException("BST is empty.");
+        }
+        else{
+            ArrayList<Integer> list = toInorderList(rootNode, new ArrayList<>());
+            for(int i = 0; i < list.size(); i++){
+                if(i == 0){
+                    continue;
+                }
+                else if(Objects.equals(list.get(i), list.get(i - 1))){
+                    list.remove(i-1);
+                    i--;
+                }
+            }
+
+            rootNode = null;
+            for(int i = 0; i < list.size(); i++){
+                insert(list.get(i));
+            }
+        }
     }
 
     public Boolean hasUniqueElements()

@@ -134,9 +134,21 @@ public class BST
         }
     }
 
-    public Boolean hasUniqueElements()
-    {
-        return null;
+    public Boolean hasUniqueElements() {
+        if(rootNode == null){
+            throw new IllegalStateException("BST is empty.");
+        }
+        else {
+            ArrayList<Integer> list = toInorderList(rootNode, new ArrayList<>());
+            for (int i = 0; i < list.size(); i++) {
+                if (i == 0) {
+                    continue;
+                } else if (Objects.equals(list.get(i), list.get(i - 1))) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
     public Integer findMax()

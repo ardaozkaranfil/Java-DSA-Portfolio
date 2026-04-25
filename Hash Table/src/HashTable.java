@@ -129,11 +129,13 @@ public class HashTable
         else{
             int temp = hashx(x);
             int i = 1;
+            boolean placed = false;
 
-            while(!contains(x)){
+            while(!placed){
                 if(table[temp] == null){
                     table[temp] = x;
                     elementSize++;
+                    placed = true;
                 }
                 else{
                     temp = (int) (x + Math.pow(i, 2)) % capacity;

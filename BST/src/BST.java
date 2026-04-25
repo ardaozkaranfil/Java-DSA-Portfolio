@@ -100,7 +100,13 @@ public class BST
 
     protected ArrayList<Integer> toInorderList(BinaryNode parent, ArrayList<Integer> list)
     {
-        return null;
+        if(parent == null){
+            return list;
+        }
+        toInorderList(parent.leftNode, list);
+        list.add(parent.getValue());
+        toInorderList(parent.rightNode, list);
+        return list;
     }
 
     public Boolean removeDuplicates()

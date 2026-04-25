@@ -153,7 +153,16 @@ public class BST
 
     public Integer findMax()
     {
-        return Integer.MIN_VALUE;
+        if(rootNode == null){
+            throw new IllegalStateException("BST is empty.");
+        }
+        else {
+            BinaryNode node = rootNode;
+            while(!(node.rightNode == null)){
+                node = node.rightNode;
+            }
+            return node.getValue();
+        }
     }
 
     public Integer findDepth(BinaryNode node)

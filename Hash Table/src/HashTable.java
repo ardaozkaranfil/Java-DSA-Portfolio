@@ -94,7 +94,7 @@ public class HashTable
     }
 
     protected void rehash() {
-        if((double) elementSize / capacity >= 0.5) {
+        if((double) (elementSize + 1) / capacity >= 0.5) {
             capacity = nextPrime(capacity);
 
             Integer[] temp = table;

@@ -89,3 +89,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+.claude/worktrees/suspicious-leavitt-6f5312/

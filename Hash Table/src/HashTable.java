@@ -148,7 +148,7 @@ public class HashTable
     public Boolean contains(Integer value)
     {
         if(value == null){
-            throw new IllegalArgumentException("x must be integer!");
+            throw new IllegalArgumentException("value must be integer!");
         }
         else {
             for(Integer i : table){
@@ -161,9 +161,15 @@ public class HashTable
         }
     }
 
-    public Integer getValue(int key)
-    {
-
-        return null;
+    public Integer getValue(int key) {
+        if(table[key] == null){
+            return -1;
+        }
+        else if(hashx(table[key]) == key){
+            return table[key];
+        }
+        else{
+            return -1;
+        }
     }
 }

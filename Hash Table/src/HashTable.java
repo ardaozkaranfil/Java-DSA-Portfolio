@@ -93,9 +93,26 @@ public class HashTable
         }
     }
 
-    protected void rehash()
-    {
+    protected void rehash() {
+        if((double) elementSize / capacity >= 0.5) {
+            capacity = nextPrime(capacity);
 
+            Integer[] temp = table;
+            table = new Integer[capacity];
+            elementSize = 0;
+
+            for(int i = 0; i < temp.length; i++){
+                if(temp[i] == null){
+                    continue;
+                }
+                else{
+                    insert(temp[i]);
+                }
+            }
+        }
+        else{
+            System.out.println("\uF06C < 0.5 because of that rehash is unnecessary.");
+        }
     }
 
     public void insert(Integer x)

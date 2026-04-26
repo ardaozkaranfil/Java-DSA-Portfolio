@@ -75,7 +75,26 @@ public class AVL {
     }
 
     public AVLNode balance(AVLNode root){
-        return null;
+        if (root != null){
+            if(getHeight(root.left) - getHeight(root.right) >= 2){
+                if (getHeight(root.left.left) >= getHeight(root.left.right)) {
+                    root = rotateLL(root);
+                }
+                else {
+                    root = rotateLR(root);
+                }
+            }
+            else if(getHeight(root.left) - getHeight(root.right) <= -2){
+                if (getHeight(root.right.right) >= getHeight(root.right.left)) {
+                    root = rotateRR(root);
+                }
+                else {
+                    root = rotateRL(root);
+                }
+            }
+            root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        }
+        return root;
     }
 
     public AVLNode search(int elem, AVLNode root){

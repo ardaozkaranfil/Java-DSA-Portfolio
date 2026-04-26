@@ -52,11 +52,13 @@ public class AVL {
     }
 
     private AVLNode rotateLR(AVLNode root){
-        return null;
+        root.left = rotateRR(root.left);
+        return rotateLL(root);
     }
 
     private AVLNode rotateRL(AVLNode root){
-        return null;
+        root.right = rotateLL(root.right);
+        return rotateRR(root);
     }
 
     public AVLNode insert(int elem, AVLNode root){

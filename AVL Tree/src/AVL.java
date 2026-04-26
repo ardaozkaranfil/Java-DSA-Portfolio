@@ -129,6 +129,17 @@ public class AVL {
     }
 
     public static Boolean AVLEquals(AVLNode root1, AVLNode root2){
-        return null;
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        else if(root1 == null || root2 == null){
+            return false;
+        }
+        else if(root1.elem != root2.elem){
+            return false;
+        }
+        else{
+            return AVLEquals(root1.left, root2.left) && AVLEquals(root1.right, root2.right);
+        }
     }
 }

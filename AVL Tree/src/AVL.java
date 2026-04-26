@@ -62,7 +62,16 @@ public class AVL {
     }
 
     public AVLNode insert(int elem, AVLNode root){
-        return null;
+        if (root == null) {
+            return new AVLNode(elem, null, null);
+        }
+        else if (elem < root.elem) {
+            root.left = insert(elem, root.left);
+        }
+        else if (elem > root.elem) {
+            root.right = insert(elem, root.right);
+        }
+        return balance(root);
     }
 
     public AVLNode balance(AVLNode root){

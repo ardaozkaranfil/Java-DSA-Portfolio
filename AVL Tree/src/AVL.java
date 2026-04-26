@@ -112,8 +112,20 @@ public class AVL {
         }
     }
 
-    public Boolean isAVL(AVLNode root){
-        return null;
+    public Boolean isAVL(AVLNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (Math.abs(getHeight(root.left) - getHeight(root.right)) > 1) {
+            return false;
+        }
+        if (root.left != null && root.left.elem > root.elem) {
+            return false;
+        }
+        if (root.right != null && root.right.elem < root.elem) {
+            return false;
+        }
+        return isAVL(root.left) && isAVL(root.right);
     }
 
     public static Boolean AVLEquals(AVLNode root1, AVLNode root2){

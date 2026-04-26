@@ -98,7 +98,18 @@ public class AVL {
     }
 
     public AVLNode search(int elem, AVLNode root){
-        return null;
+        if (root == null){
+            return null;
+        }
+        else if(root.elem == elem){
+            return root;
+        }
+        else if(elem < root.elem){
+            return search(elem, root.left);
+        }
+        else{
+            return search(elem, root.right);
+        }
     }
 
     public Boolean isAVL(AVLNode root){

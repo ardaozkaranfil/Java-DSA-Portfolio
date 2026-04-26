@@ -30,11 +30,25 @@ public class AVL {
     }
 
     private AVLNode rotateLL(AVLNode root){
-        return null;
+        AVLNode newRoot = root.left;
+        root.left = newRoot.right;
+        newRoot.right = root;
+
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        newRoot.height = Math.max(getHeight(newRoot.left), getHeight(newRoot.right)) + 1;
+
+        return newRoot;
     }
 
     private AVLNode rotateRR(AVLNode root){
-        return null;
+        AVLNode newRoot = root.right;
+        root.right = newRoot.left;
+        newRoot.left = root;
+
+        root.height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+        newRoot.height = Math.max(getHeight(newRoot.left), getHeight(newRoot.right)) + 1;
+
+        return newRoot;
     }
 
     private AVLNode rotateLR(AVLNode root){

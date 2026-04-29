@@ -58,7 +58,15 @@ public class MinHeap {
     }
 
     public void insert(int x){
-        return;
+        if(x <= 0){
+            throw new IllegalArgumentException("Inserted value must be a positive integer");
+        }
+        else if(currentSize == array.length - 1){
+            enlargeArray(array.length * 2);
+        }
+
+        currentSize++;
+        percolateUp(x, currentSize);
     }
 
     private void percolateUp(int x, int hole){

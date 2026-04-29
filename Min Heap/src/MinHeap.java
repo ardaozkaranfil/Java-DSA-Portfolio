@@ -139,7 +139,9 @@ public class MinHeap {
     }
 
     private void buildHeap(){
-        return;
+        for(int i = currentSize / 2; i >= 1; i--){
+            percolateDown(i);
+        }
     }
 
 

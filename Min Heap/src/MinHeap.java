@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class MinHeap {
 
     private static final int DEFAULT_CAPACITY = 10;
@@ -50,7 +52,9 @@ public class MinHeap {
 
 
     private void enlargeArray(int newSize){
-        return;
+        int[] newArray = new int[newSize];
+        System.arraycopy(array,0, newArray, 0, array.length);
+        array = newArray;
     }
 
     public void insert(int x){

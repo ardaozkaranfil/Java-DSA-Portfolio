@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class MinHeap {
 
@@ -123,7 +124,18 @@ public class MinHeap {
     }
 
     public int deleteMin(){
-        return 0;
+        if(currentSize == 0){
+            throw new NoSuchElementException("Heap is empty");
+        }
+        else{
+            int temp = array[1];
+            array[1] = array[currentSize];
+            currentSize--;
+
+            percolateDown(1);
+
+            return temp;
+        }
     }
 
     private void buildHeap(){

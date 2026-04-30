@@ -241,6 +241,20 @@ public class MinHeap {
     }
 
     public Boolean isMinHeap(int[] arr){
+        if (arr == null || arr.length < 2) {
+            return false;
+        }
+
+        int n = arr.length - 1;
+
+        for (int i = 1; i <= n / 2; i++) {
+            if (i * 2 <= n && arr[i] > arr[i * 2]) {
+                return false;
+            }
+            else if (i * 2 + 1 <= n && arr[i] > arr[i * 2 + 1]) {
+                return false;
+            }
+        }
         return true;
     }
 

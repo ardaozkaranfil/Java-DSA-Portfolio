@@ -161,10 +161,13 @@ public class MinHeap {
     }
 
 
-
-
     public Integer getHeight(){
-        return null;
+        if(currentSize == 0){
+            throw new NoSuchElementException("Heap is empty");
+        }
+        else{
+            return (int) (Math.log(currentSize) /  Math.log(2));
+        }
     }
 
     public Boolean decreaseKey(int index, int amount) {

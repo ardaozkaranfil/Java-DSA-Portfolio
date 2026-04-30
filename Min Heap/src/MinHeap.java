@@ -259,6 +259,16 @@ public class MinHeap {
     }
 
     public Boolean mergeHeaps(MinHeap otherHeap){
+        if (this.isEmpty() || otherHeap.isEmpty()) {
+            return false;
+        }
+
+        int[] otherArray = otherHeap.getArray();
+        int otherSize = otherHeap.getCurrentSize();
+
+        for (int i = 1; i <= otherSize; i++) {
+            this.insert(otherArray[i]);
+        }
         return true;
     }
 }

@@ -214,7 +214,30 @@ public class MinHeap {
     }
 
     public Boolean delete(int index){
-        return true;
+        if(index > currentSize){
+            System.out.println("Index out of bounds");
+            return false;
+        }
+        else if(index < 1){
+            System.out.println("Index out of bounds");
+            return false;
+        }
+        else{
+            array[index] = array[currentSize];
+            currentSize--;
+
+            if((index * 2 + 1 <= currentSize || index * 2 == currentSize) && (array[index] > array[index * 2 + 1] || array[index] > array[index * 2])) {
+                percolateDown(index);
+                return true;
+            }
+            else if(array[index] < array[index / 2]){
+                percolateUp(array[index], index);
+                return true;
+            }
+            else {
+                return true;
+            }
+        }
     }
 
     public Boolean isMinHeap(int[] arr){

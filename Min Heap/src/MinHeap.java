@@ -194,7 +194,23 @@ public class MinHeap {
     }
 
     public Boolean increaseKey(int index, int amount){
-        return true;
+        if(index > currentSize){
+            System.out.println("Index out of bounds");
+            return false;
+        }
+        else if(index < 1){
+            System.out.println("Index out of bounds");
+            return false;
+        }
+        else if(amount <= 0){
+            System.out.println("Amount must be a positive integer");
+            return false;
+        }
+        else{
+            array[index] += amount;
+            percolateDown(index);
+            return true;
+        }
     }
 
     public Boolean delete(int index){

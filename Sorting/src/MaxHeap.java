@@ -141,7 +141,9 @@ public class MaxHeap {
     }
 
     private void buildHeap(){
-        return;
+        for(int i = currentSize / 2; i > 0; i--){
+            percolateDown(i);
+        }
     }
 
     public void printHeap(){

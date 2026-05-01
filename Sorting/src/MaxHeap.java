@@ -43,7 +43,9 @@ public class MaxHeap {
     }
 
     private void enlargeArray(int newSize){
-        return;
+        int[] newArray = new int[newSize];
+        System.arraycopy(array, 0,newArray,0,currentSize + 1);
+        array = newArray;
     }
 
     public void insert(int x){

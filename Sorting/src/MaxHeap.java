@@ -53,11 +53,55 @@ public class MaxHeap {
     }
 
     private void percolateUp(int x, int hole){
-        return;
+        for(int i = hole; i > 1; i /= 2){
+            if(x > array[i / 2]){
+                int temp = array[i / 2];
+
+                array[i / 2] = x;
+                array[i] = temp;
+            }
+            else {
+                array[i] = x;
+                break;
+            }
+        }
     }
 
     private void percolateDown(int hole){
-        return;
+        int temp;
+
+        for(int i = hole; i * 2 < currentSize || i * 2 == currentSize; ){
+            if(i * 2 == currentSize && array[i] < array[i*2]){
+                temp = array[i * 2];
+                array[i * 2] = array[i];
+                array[i] = temp;
+
+                i = i * 2;
+            }
+            else if(array[i] >= array[i*2] && i * 2 == currentSize){
+                break;
+            }
+            else {
+
+                int maxChild = Math.max(array[i * 2], array[(i * 2) + 1]);
+
+                if (maxChild == array[i * 2] && array[i] < maxChild) {
+                    temp = array[i * 2];
+                    array[i * 2] = array[i];
+                    array[i] = temp;
+
+                    i = i * 2;
+                } else if (maxChild == array[(i * 2) + 1] && array[i] < maxChild) {
+                    temp = array[(i * 2) + 1];
+                    array[(i * 2) + 1] = array[i];
+                    array[i] = temp;
+
+                    i = (i * 2) + 1;
+                } else {
+                    break;
+                }
+            }
+        }
     }
 
     public int deleteMax(){

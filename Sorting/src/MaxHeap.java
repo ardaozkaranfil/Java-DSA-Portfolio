@@ -49,7 +49,25 @@ public class MaxHeap {
     }
 
     public void insert(int x){
-        return;
+        if(x <= 0){
+            throw new IllegalArgumentException("x must be a positive integer");
+        }
+        else if(array.length == 0){
+            throw new IllegalStateException("Heap array is not initialized");
+        }
+        else if(array.length - 1 == currentSize){
+            enlargeArray(array.length * 2);
+            insert(x);
+        }
+        else if(currentSize == 0){
+            array[1] = x;
+            currentSize++;
+        }
+        else{
+            currentSize++;
+            percolateUp(x, currentSize);
+
+        }
     }
 
     private void percolateUp(int x, int hole){

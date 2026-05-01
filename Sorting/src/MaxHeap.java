@@ -123,7 +123,21 @@ public class MaxHeap {
     }
 
     public int deleteMax(){
-        return 0;
+        if(array.length <= 1 || currentSize == 0){
+            throw new IllegalStateException("Heap array is not initialized");
+        }
+        else if(currentSize == 1){
+            return array[currentSize--];
+        }
+        else{
+            int max = array[1];
+            array[1] = array[currentSize];
+            currentSize--;
+
+            percolateDown(1);
+
+            return max;
+        }
     }
 
     private void buildHeap(){

@@ -56,5 +56,45 @@ public class Test {
         } catch (IllegalStateException e) {
             System.out.println("deleteMax on empty exception (expected): " + e.getMessage());
         }
+
+        int[] unsorted1 = {5, 3, 8, 1, 9, 2, 7};
+        Sorting.bubbleSort(unsorted1);
+        System.out.println("bubbleSort (expected 1 2 3 5 7 8 9): ");
+        for (int x : unsorted1) System.out.print(x + " ");
+        System.out.println();
+
+        int[] unsorted2 = {1};
+        Sorting.bubbleSort(unsorted2);
+        System.out.println("bubbleSort single element (expected 1): " + unsorted2[0]);
+
+        int[] unsorted3 = {2, 1};
+        Sorting.bubbleSort(unsorted3);
+        System.out.println("bubbleSort two elements (expected 1 2): " + unsorted3[0] + " " + unsorted3[1]);
+
+        int[] alreadySorted = {1, 2, 3, 4, 5};
+        Sorting.bubbleSort(alreadySorted);
+        System.out.println("bubbleSort already sorted (expected 1 2 3 4 5): ");
+        for (int x : alreadySorted) System.out.print(x + " ");
+        System.out.println();
+
+        int[] unsorted4 = {5, 3, 8, 1, 9, 2, 7};
+        Sorting.heapSort(unsorted4);
+        System.out.println("heapSort (expected 1 2 3 5 7 8 9): ");
+        for (int x : unsorted4) System.out.print(x + " ");
+        System.out.println();
+
+        int[] unsorted5 = {1};
+        Sorting.heapSort(unsorted5);
+        System.out.println("heapSort single element (expected 1): " + unsorted5[0]);
+
+        int[] unsorted6 = {2, 1};
+        Sorting.heapSort(unsorted6);
+        System.out.println("heapSort two elements (expected 1 2): " + unsorted6[0] + " " + unsorted6[1]);
+
+        int[] alreadySorted2 = {1, 2, 3, 4, 5};
+        Sorting.heapSort(alreadySorted2);
+        System.out.println("heapSort already sorted (expected 1 2 3 4 5): ");
+        for (int x : alreadySorted2) System.out.print(x + " ");
+        System.out.println();
     }
 }

@@ -24,6 +24,10 @@ public class Sorting {
     }
 
     public static void heapSort(int[] arr){
-        return;
+        MaxHeap heap = new MaxHeap(arr.clone());
+
+        for(int i = arr.length; i != 0; i--){
+            arr[i - 1] = heap.deleteMax();
+        }
     }
 }

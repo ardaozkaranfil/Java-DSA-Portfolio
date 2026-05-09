@@ -66,8 +66,10 @@ public class BST
 
     public void insert(Integer x)
     {
-        if (x >= 0)
-            setRootNode(insert(getRootNode(), x));
+        if (x == null){
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+        setRootNode(insert(getRootNode(), x));
     }
 
     private BinaryNode insert(BinaryNode rootNode, Integer x)
@@ -76,15 +78,13 @@ public class BST
             return new BinaryNode(x);
         }
 
-        if (x < rootNode.value)
-        {
+        if (x < rootNode.value) {
             rootNode.setLeftNode(insert(rootNode.getLeftNode(), x));
         }
-
-        else {
+        else if (x > rootNode.value) {
             rootNode.setRightNode(insert(rootNode.getRightNode(), x));
         }
-
+        
         return rootNode;
     }
 

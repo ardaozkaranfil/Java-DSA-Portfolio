@@ -11,6 +11,10 @@ class AVLNode{
     }
 }
 
+/**
+ * AVL Tree implementation with self-balancing on insert.
+ * Rotation logic is split into four cases: LL, RR, LR, RL.
+ */
 public class AVL {
 
     AVLNode root;
@@ -61,6 +65,11 @@ public class AVL {
         return rotateRR(root);
     }
 
+    /**
+     * Recursive BST insertion with duplicate rejection.
+     * Each recursive call returns through balance to maintain AVL property on the way back up.
+     * @time O(log n)
+     */
     public AVLNode insert(int elem, AVLNode root){
         if (root == null) {
             return new AVLNode(elem, null, null);
@@ -74,6 +83,11 @@ public class AVL {
         return balance(root);
     }
 
+    /**
+     * Checks the height difference and applies the appropriate single or double rotation.
+     * Updates height after rebalancing.
+     * @time O(1)
+     */
     public AVLNode balance(AVLNode root){
         if (root != null){
             if(getHeight(root.left) - getHeight(root.right) >= 2){
@@ -97,6 +111,11 @@ public class AVL {
         return root;
     }
 
+    /**
+     * Recursive BST search using the AVL tree's ordering property.
+     * Returns the node if found, null otherwise.
+     * @time O(log n)
+     */
     public AVLNode search(int elem, AVLNode root){
         if (root == null){
             return null;
@@ -112,6 +131,11 @@ public class AVL {
         }
     }
 
+    /**
+     * Checks balance factor and BST property against immediate children at each node,
+     * then recursively validates both subtrees.
+     * @time O(n)
+     */
     public Boolean isAVL(AVLNode root) {
         if (root == null) {
             return true;
@@ -128,6 +152,10 @@ public class AVL {
         return isAVL(root.left) && isAVL(root.right);
     }
 
+    /**
+     * Compares two AVL trees recursively by structure and element equality.
+     * @time O(n)
+     */
     public static Boolean AVLEquals(AVLNode root1, AVLNode root2){
         if (root1 == null && root2 == null) {
             return true;

@@ -186,10 +186,13 @@ public class PriorityQueue {
             return true;
         }
         else{
+            int newPriority = temp.getPriority() - 1;
+            if(newPriority < 1) return false;
+
             lowerTemp.setNext(temp.getNext());
-            temp.setPriority(temp.getPriority() - 1);
+            temp.setPriority(newPriority);
             size--;
-            enqueue(temp.getPriority(), temp.getName());
+            enqueue(newPriority, temp.getName());
             return true;
         }
     }

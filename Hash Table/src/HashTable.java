@@ -163,9 +163,6 @@ public class HashTable
         if(table[key] == null){
             return -1;
         }
-        else if(hashx(table[key]) == key){
-            return table[key];
-        }
         else{
             return -1;
         }

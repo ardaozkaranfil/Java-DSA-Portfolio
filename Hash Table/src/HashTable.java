@@ -84,6 +84,10 @@ public class HashTable
         return prime;
     }
 
+    /**
+     * Returns the hash index for the given value.
+     * @time O(1)
+     */
     protected Integer hashx(Integer x) {
         if(x == null){
             throw new IllegalArgumentException("x must be integer!");
@@ -91,6 +95,10 @@ public class HashTable
         return Math.floorMod(x, capacity);
     }
 
+    /**
+     * Expands the table and reinserts all elements.
+     * @time O(n)
+     */
     protected void rehash() {
         if((double) (elementSize + 1) / capacity >= 0.5) {
             capacity = nextPrime(capacity);
@@ -113,6 +121,10 @@ public class HashTable
         }
     }
 
+    /**
+     * Inserts the given value using quadratic probing.
+     * @time O(1) average
+     */
     public void insert(Integer x) {
         if(x == null){
             throw new IllegalArgumentException("x must be integer!");
@@ -143,6 +155,10 @@ public class HashTable
         }
     }
 
+    /**
+     * Checks whether the table contains the given value.
+     * @time O(1) average
+     */
     public Boolean contains(Integer value)
     {
         if(value == null){
@@ -159,6 +175,10 @@ public class HashTable
         return false;
     }
 
+    /**
+     * Returns the value at the given index, or -1 if empty.
+     * @time O(1)
+     */
     public Integer getValue(int key) {
         if(table[key] == null){
             return -1;

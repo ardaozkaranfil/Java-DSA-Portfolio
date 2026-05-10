@@ -55,5 +55,12 @@ public class Test {
         ts.pushToStackTwoFromStackOne(2);
         System.out.println("Stack 1 empty: " + ts.isStackOneEmpty()); // true
         System.out.println("Top 2: " + ts.topStackTwo()); // 1
+
+        System.out.println("\n=== Test 10: makeStackTwoEmpty ===");
+        ts.pushToStackTwo(50);
+        ts.pushToStackTwo(60);
+        ts.makeStackTwoEmpty();
+        System.out.println("Stack 2 empty: " + ts.isStackTwoEmpty()); // true
+        ts.makeStackTwoEmpty();
     }
 }

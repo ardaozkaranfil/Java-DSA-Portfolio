@@ -51,13 +51,20 @@ public class MinHeap {
         return array[1];
     }
 
-
+    /**
+     * Allocates a new array of the given size and copies existing elements.
+     * @time O(n)
+     */
     private void enlargeArray(int newSize){
         int[] newArray = new int[newSize];
         System.arraycopy(array,0, newArray, 0, array.length);
         array = newArray;
     }
 
+    /**
+     * Inserts a positive integer into the heap.
+     * @time O(log n)
+     */
     public void insert(int x){
         if(x <= 0){
             throw new IllegalArgumentException("Inserted value must be a positive integer");
@@ -70,6 +77,10 @@ public class MinHeap {
         percolateUp(x, currentSize);
     }
 
+    /**
+     * Moves the element at the given hole upward to restore heap order.
+     * @time O(log n)
+     */
     private void percolateUp(int x, int hole){
         if(array.length == 0 || x >= array[hole / 2]){
             array[hole] = x;
@@ -86,6 +97,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Moves the element at the given hole downward to restore heap order.
+     * @time O(log n)
+     */
     private void percolateDown(int hole){
         int temp;
 
@@ -123,6 +138,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Removes and returns the minimum element.
+     * @time O(log n)
+     */
     public int deleteMin(){
         if(currentSize == 0){
             throw new NoSuchElementException("Heap is empty");
@@ -138,6 +157,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Builds a valid heap from an unordered array.
+     * @time O(n)
+     */
     private void buildHeap(){
         for(int i = currentSize / 2; i >= 1; i--){
             percolateDown(i);
@@ -160,7 +183,10 @@ public class MinHeap {
         System.out.println("\n---------------------------\n");
     }
 
-
+    /**
+     * Returns the zero-based height of the heap.
+     * @time O(1)
+     */
     public Integer getHeight(){
         if(currentSize == 0){
             throw new NoSuchElementException("Heap is empty");
@@ -170,6 +196,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Decreases the value at the given index by the specified amount.
+     * @time O(log n)
+     */
     public Boolean decreaseKey(int index, int amount) {
         if(index > currentSize){
             System.out.println("Index out of bounds");
@@ -193,6 +223,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Increases the value at the given index by the specified amount.
+     * @time O(log n)
+     */
     public Boolean increaseKey(int index, int amount){
         if(index > currentSize){
             System.out.println("Index out of bounds");
@@ -213,6 +247,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Deletes the element at the given index.
+     * @time O(log n)
+     */
     public Boolean delete(int index){
         if(index > currentSize){
             System.out.println("Index out of bounds");
@@ -240,6 +278,10 @@ public class MinHeap {
         }
     }
 
+    /**
+     * Checks whether the given array satisfies the min-heap property.
+     * @time O(n)
+     */
     public Boolean isMinHeap(int[] arr){
         if (arr == null || arr.length < 2) {
             return false;
@@ -258,6 +300,10 @@ public class MinHeap {
         return true;
     }
 
+    /**
+     * Merges the given heap into this heap.
+     * @time O(n log n)
+     */
     public Boolean mergeHeaps(MinHeap otherHeap){
         if (this.isEmpty() || otherHeap.isEmpty()) {
             return false;

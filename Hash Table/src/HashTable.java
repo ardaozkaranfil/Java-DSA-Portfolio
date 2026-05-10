@@ -88,9 +88,7 @@ public class HashTable
         if(x == null){
             throw new IllegalArgumentException("x must be integer!");
         }
-        else{
-            return x % capacity;
-        }
+        return Math.floorMod(x, capacity);
     }
 
     protected void rehash() {

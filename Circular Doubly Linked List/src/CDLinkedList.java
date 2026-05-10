@@ -100,6 +100,10 @@ public class CDLinkedList {
         System.out.println(new String(data));
     }
 
+    /**
+     * Sets up circular next/prev links between head and tail at construction.
+     * @time O(1)
+     */
     private void initializeLinksAndCircularity() {
         headNode.setNextElement(tailNode);
         headNode.setPrevElement(tailNode);
@@ -107,6 +111,10 @@ public class CDLinkedList {
         tailNode.setNextElement(headNode);
     }
 
+    /**
+     * Removes the middle element (at index size/2) from the list.
+     * @time O(n)
+     */
     public boolean deleteMiddleElement (){
         if(size <= 2){
             System.out.println("Circular Linked List is empty or have less than 3 members because of that system can not delete middle element.");
@@ -128,6 +136,10 @@ public class CDLinkedList {
         }
     }
 
+    /**
+     * Returns the element at the given position, traversing forward or backward.
+     * @time O(n)
+     */
     public int getElement (int position, boolean isForward){
         if(size < 2){
             System.out.println("Circular Linked List is empty or have less than 2 members.");

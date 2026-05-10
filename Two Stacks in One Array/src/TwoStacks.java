@@ -68,19 +68,22 @@ public class TwoStacks {
 
 
 
-
+    /** @time O(1) */
     public boolean isStackOneEmpty() {
         return top1 == -1;
     }
 
+    /** @time O(1) */
     public boolean isStackTwoEmpty() {
         return top2 == getCapacity();
     }
 
+    /** @time O(1) */
     public boolean isTwoStacksFull() {
         return top1 + 1 == top2;
     }
 
+    /** @time O(1) */
     public void pushToStackOne(int value) {
         if (!isTwoStacksFull()){
             top1 += 1;
@@ -88,6 +91,7 @@ public class TwoStacks {
         }
     }
 
+    /** @time O(1) */
     public void pushToStackTwo(int value) {
         if (!isTwoStacksFull()){
             top2 -= 1;
@@ -95,6 +99,7 @@ public class TwoStacks {
         }
     }
 
+    /** @time O(1) */
     public void popFromStackOne() {
         if (isStackOneEmpty()){
             System.out.println("Stack one is empty because of that you can't pop.");
@@ -106,6 +111,7 @@ public class TwoStacks {
         }
     }
 
+    /** @time O(1) */
     public void popFromStackTwo() {
         if (isStackTwoEmpty()){
             System.out.println("Stack two is empty because of that you can't pop.");
@@ -117,6 +123,7 @@ public class TwoStacks {
         }
     }
 
+    /** @time O(1) */
     public int topStackOne() {
         if(isStackOneEmpty()){
             System.out.println("Stack one is empty.");
@@ -127,6 +134,7 @@ public class TwoStacks {
         }
     }
 
+    /** @time O(1) */
     public int topStackTwo() {
         if(isStackTwoEmpty()){
             System.out.println("Stack two is empty.");
@@ -137,6 +145,10 @@ public class TwoStacks {
         }
     }
 
+    /**
+     * Swaps the top elements of both stacks in place.
+     * @time O(1)
+     */
     public boolean swapTops() {
         if(isBothStacksEmpty()){
             System.out.println("Both stacks are empty.");
@@ -158,6 +170,10 @@ public class TwoStacks {
         }
     }
 
+    /**
+     * Removes all elements from stack one by repeatedly popping.
+     * @time O(n)
+     */
     public void makeStackOneEmpty() {
         if(isStackOneEmpty()){
             System.out.println("Stack one is already empty.");
@@ -169,6 +185,10 @@ public class TwoStacks {
         }
     }
 
+    /**
+     * Removes all elements from stack two by repeatedly popping.
+     * @time O(n)
+     */
     public void makeStackTwoEmpty() {
         if(isStackTwoEmpty()){
             System.out.println("Stack two is already empty.");
@@ -184,6 +204,10 @@ public class TwoStacks {
         return isStackOneEmpty() && isStackTwoEmpty();
     }
 
+    /**
+     * Moves the top elementCount elements from stack one to stack two.
+     * @time O(k) where k is elementCount
+     */
     public void pushToStackTwoFromStackOne(int elementCount) {
         if(isStackOneEmpty()){
             System.out.println("Stack one is empty.");

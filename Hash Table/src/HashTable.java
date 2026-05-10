@@ -148,15 +148,15 @@ public class HashTable
         if(value == null){
             throw new IllegalArgumentException("value must be integer!");
         }
-        else {
-            for(Integer i : table){
-                if(value.equals(i)){
-                    return true;
-                }
-            }
-
-            return false;
+        int idx = hashx(value);
+        int i = 1;
+        while (table[idx] != null) {
+            if (value.equals(table[idx])) return true;
+            idx = (hashx(value) + i * i) % capacity;
+            i++;
+            if (i > capacity) break;
         }
+        return false;
     }
 
     public Integer getValue(int key) {

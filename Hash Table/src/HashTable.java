@@ -184,7 +184,7 @@ public class HashTable
             return -1;
         }
         else{
-            return -1;
+            return table[key];
         }
     }
 }

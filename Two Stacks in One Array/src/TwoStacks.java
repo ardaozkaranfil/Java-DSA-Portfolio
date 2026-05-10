@@ -174,7 +174,7 @@ public class TwoStacks {
             System.out.println("Stack two is already empty.");
         }
         else{
-            while(top2 <= getCapacity()){
+            while(top2 < getCapacity()) {
                 popFromStackTwo();
             }
         }

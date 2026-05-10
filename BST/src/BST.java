@@ -64,6 +64,10 @@ public class BST
         this.rootNode = rootNode;
     }
 
+    /**
+     * Inserts a value into the BST.
+     * @time O(h)
+     */
     public void insert(Integer x)
     {
         if (x == null){
@@ -99,6 +103,10 @@ public class BST
         printTreeInorder(root.rightNode);
     }
 
+    /**
+     * Traverses the BST inorder and collects values into the given list.
+     * @time O(n)
+     */
     protected ArrayList<Integer> toInorderList(BinaryNode parent, ArrayList<Integer> list)
     {
         if(parent == null){
@@ -110,6 +118,10 @@ public class BST
         return list;
     }
 
+    /**
+     * Removes all duplicate values from the BST.
+     * @time O(n log n)
+     */
     public void removeDuplicates()
     {
         if(rootNode == null){
@@ -134,6 +146,10 @@ public class BST
         }
     }
 
+    /**
+     * Checks whether all elements in the BST are unique.
+     * @time O(n)
+     */
     public Boolean hasUniqueElements() {
         if(rootNode == null){
             throw new IllegalStateException("BST is empty.");
@@ -151,6 +167,10 @@ public class BST
         }
     }
 
+    /**
+     * Returns the maximum value in the BST.
+     * @time O(h)
+     */
     public Integer findMax()
     {
         if(rootNode == null){
@@ -165,6 +185,10 @@ public class BST
         }
     }
 
+    /**
+     * Returns the height of the subtree rooted at the given node.
+     * @time O(n)
+     */
     public Integer findDepth(BinaryNode node) {
         if(node == null){
             return -1;

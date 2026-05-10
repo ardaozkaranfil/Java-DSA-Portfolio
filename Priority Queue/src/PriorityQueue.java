@@ -87,6 +87,10 @@ public class PriorityQueue {
         System.out.println("\n\n");
     }
 
+    /**
+     * Inserts a new node in the ascending priority order. Equal priorities follow FIFO.
+     * @time O(n)
+     */
     public boolean enqueue(int priority, String name){
         if(priority < 1){
             System.out.println("Priority cannot be  lower than 1.");
@@ -127,6 +131,10 @@ public class PriorityQueue {
         }
     }
 
+    /**
+     * Removes and returns the name of the highest-priority element.
+     * @time O(1)
+     */
     public String dequeue(){
         Node temp = getHeadNode();
 
@@ -145,6 +153,10 @@ public class PriorityQueue {
         }
     }
 
+    /**
+     * Returns the zero-based index of the first occurrence of the given name.
+     * @time O(n)
+     */
     public int findPlace(String name){
         Node temp = getHeadNode();
         int place = 0;
@@ -166,6 +178,10 @@ public class PriorityQueue {
         }
     }
 
+    /**
+     * Decreases the priority of the given node by one and relocates it.
+     * @time O(n)
+     */
     public boolean promote(String name){
         Node temp = getHeadNode();
         Node lowerTemp = temp;

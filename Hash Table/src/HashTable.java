@@ -135,8 +135,8 @@ public class HashTable
                     elementSize++;
                     placed = true;
                 }
-                else{
-                    temp = (int) (x + Math.pow(i, 2)) % capacity;
+                else {
+                    temp = (hashx(x) + i * i) % capacity;
                     i++;
                 }
             }
